@@ -17,14 +17,13 @@ function get_all_saad_contact($args = array())
         'orderby'    => 'id',
         'order'      => 'DESC',
     );
-
+ 
     $args      = wp_parse_args($args, $defaults);
     $cache_key = 'contact-all';
     $items     = wp_cache_get($cache_key, 'saad_contacts');
 
     if (false === $items) {
-        $items = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'saad_contacts ORDER BY ' . $args['orderby'] .' ' . $args['order'] .' LIMIT ' . $args['offset'] . ', ' . $args['number']);
-
+        $items = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'saad_contacts ORDER BY ' . $args['orderby'] .' ' . $args['order'] .' LIMIT ' . $args['offset'] . ', ' . $args['number']); 
         wp_cache_set($cache_key, $items, 'saad_contacts');
     }
 

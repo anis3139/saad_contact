@@ -11,6 +11,7 @@
  */
 
 use Saad_Contacts\Admin\Admin;
+use Saad_Contacts\API;
 use Saad_Contacts\Frontend\Frontend;
 use Saad_Contacts\Installer;
 
@@ -87,6 +88,7 @@ final class Saad_Contacts
         } else {
             new Frontend();
         }
+        new API();
     }
 
     /**
