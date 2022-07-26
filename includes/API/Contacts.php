@@ -286,7 +286,7 @@ class Contacts extends WP_REST_Controller
         $contact = get_saad_contact_by_id($id);
 
         if (! $contact) {
-            return new WP_Error(
+            return new \WP_Error(
                 'rest_contact_invalid_id',
                 __('Invalid contact ID.'),
                 [ 'status' => 404 ]
@@ -365,7 +365,7 @@ class Contacts extends WP_REST_Controller
         $updated = saad_contact_insert($prepared);
 
         if (! $updated) {
-            return new WP_Error(
+            return new \WP_Error(
                 'rest_not_updated',
                 __('Sorry, the address could not be updated.'),
                 [ 'status' => 400 ]
@@ -393,7 +393,7 @@ class Contacts extends WP_REST_Controller
         $deleted = saad_contact_delete($request['id']); 
         
         if (! $deleted) {
-            return new WP_Error(
+            return new \WP_Error(
                 'rest_not_deleted',
                 __('Sorry, the address could not be deleted.'),
                 [ 'status' => 400 ]

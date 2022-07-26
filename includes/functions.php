@@ -81,7 +81,7 @@ function saad_contact_insert($args = array())
 
     // some basic validation
     if (empty($args['name'])) {
-        return new WP_Error('no-name', __('No Name provided.', 'saad_contacts'));
+        return new \WP_Error('no-name', __('No Name provided.', 'saad_contacts'));
     }
 
     // remove row id to determine if new or update
