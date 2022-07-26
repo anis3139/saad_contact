@@ -19,7 +19,6 @@ if (! defined('ABSPATH')) {
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
-
 /**
  * The main plugin class
  */
@@ -39,6 +38,7 @@ final class Saad_Contacts
     private function __construct()
     {
         $this->define_constants();
+        $this->appsero_init_tracker_saad_form();
 
         register_activation_hook(__FILE__, [ $this, 'activate' ]);
 
@@ -48,7 +48,7 @@ final class Saad_Contacts
     /**
      * Initializes a singleton instance
      *
-     * @return \WeDevs_Academy
+     * @return \Saad_Contacts
      */
     public static function init()
     {
@@ -99,12 +99,41 @@ final class Saad_Contacts
         $installer = new Installer();
         $installer->run();
     }
+
+    /**
+     * Initialize the plugin tracker
+     *
+     * @return void
+     */
+    public function appsero_init_tracker_saad_form()
+    {
+        if (! class_exists('Appsero\Client')) {
+            require_once __DIR__ . '/appsero/src/Client.php';
+        }
+
+        $client = new Appsero\Client('4ddde853-c208-4a14-a81b-186717cc790a', 'saad form', __FILE__);
+
+        // Active insights
+        $client->insights()->init();
+
+        // Active automatic updater
+        $client->updater();
+
+        // Active license page and checker
+        $args = array(
+            'type'       => 'options',
+            'menu_title' => 'saad form',
+            'page_title' => 'saad form Settings',
+            'menu_slug'  => 'saad_form_settings',
+        );
+        $client->license()->add_settings_page($args);
+    }
 }
 
 /**
  * Initializes the main plugin
  *
- * @return \WeDevs_Academy
+ * @return \Saad_Contacts
  */
 function saad_contacts()
 {
