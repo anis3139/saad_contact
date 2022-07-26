@@ -38,7 +38,7 @@ final class Saad_Contacts
     private function __construct()
     {
         $this->define_constants();
-        $this->appsero_init_tracker_saad_form();
+        $this->appsero_init_tracker_saad_contacts();
 
         register_activation_hook(__FILE__, [ $this, 'activate' ]);
 
@@ -100,18 +100,19 @@ final class Saad_Contacts
         $installer->run();
     }
 
+   
     /**
      * Initialize the plugin tracker
      *
      * @return void
      */
-    public function appsero_init_tracker_saad_form()
+    public function appsero_init_tracker_saad_contacts()
     {
         if (! class_exists('Appsero\Client')) {
             require_once __DIR__ . '/appsero/src/Client.php';
         }
 
-        $client = new Appsero\Client('4ddde853-c208-4a14-a81b-186717cc790a', 'saad form', __FILE__);
+        $client = new Appsero\Client('370c673e-8695-4975-a5df-62ba84134b13', 'saad contacts', __FILE__);
 
         // Active insights
         $client->insights()->init();
@@ -121,10 +122,10 @@ final class Saad_Contacts
 
         // Active license page and checker
         $args = array(
-            'type'       => 'options',
-            'menu_title' => 'saad form',
-            'page_title' => 'saad form Settings',
-            'menu_slug'  => 'saad_form_settings',
+        'type'       => 'options',
+        'menu_title' => 'saad contacts',
+        'page_title' => 'saad contacts Settings',
+        'menu_slug'  => 'saad_contacts_settings',
         );
         $client->license()->add_settings_page($args);
     }
