@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Contacts
- * Description: contact form
+ * Description: Contact Form
  * Plugin URI: https://github.com/anis3139
  * Author: Anichur Rahaman
  * Author URI: https://github.com/anis3139

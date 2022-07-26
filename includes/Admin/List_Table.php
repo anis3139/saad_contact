@@ -249,14 +249,9 @@ class List_Table extends \WP_List_Table
      */
     public function process_bulk_action()
     {
-        global $wpdb;
         if ('delete'===$this->current_action()) {
             foreach ($_GET['contact'] as $id) {
-                $result= $wpdb->delete(
-                    $wpdb->prefix . 'contacts',
-                    [ 'id' => $id ],
-                    [ '%d' ]
-                );
+                $result=wp_contacts_delete($id);
             }
             if ($result) {
                 $redirected_to = admin_url('admin.php?page=contacts&contact-deleted=true');
