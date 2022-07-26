@@ -48,7 +48,7 @@ class Shortcode
         }
 
          
-        $page_url = home_url('contacts');
+        $page_url = wp_get_referer();
 
         $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
         $email = isset($_POST['email']) ? sanitize_text_field($_POST['email']) : '';
