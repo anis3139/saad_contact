@@ -24,9 +24,9 @@ class Menu
     {
 
         /** Top Menu **/
-        add_menu_page(__('Contacts', 'wp_contacts'), __('Contacts', 'wp_contacts'), 'manage_options', 'contacts', array( $this, 'plugin_page' ), 'dashicons-email-alt2', 15, null);
+        add_menu_page(__('Contacts', 'saad_contacts'), __('Contacts', 'saad_contacts'), 'manage_options', 'contacts', array( $this, 'plugin_page' ), 'dashicons-email-alt2', 15, null);
 
-        add_submenu_page('contacts', __('Contacts', 'wp_contacts'), __('Contacts', 'wp_contacts'), 'manage_options', 'contacts', array( $this, 'plugin_page' ));
+        add_submenu_page('contacts', __('Contacts', 'saad_contacts'), __('Contacts', 'saad_contacts'), 'manage_options', 'contacts', array( $this, 'plugin_page' ));
     }
 
     /**
@@ -41,19 +41,19 @@ class Menu
         switch ($action) {
             case 'view':
 
-                $template = dirname(__FILE__) . '/views/wp_contact-single.php';
+                $template = dirname(__FILE__) . '/views/saad_contact-single.php';
                 break;
 
             case 'edit':
-                $template = dirname(__FILE__) . '/views/wp_contact-edit.php';
+                $template = dirname(__FILE__) . '/views/saad_contact-edit.php';
                 break;
 
             case 'new':
-                $template = dirname(__FILE__) . '/views/wp_contact-new.php';
+                $template = dirname(__FILE__) . '/views/saad_contact-new.php';
                 break;
 
             default:
-                $template = dirname(__FILE__) . '/views/wp_contact-list.php';
+                $template = dirname(__FILE__) . '/views/saad_contact-list.php';
                 break;
         }
 

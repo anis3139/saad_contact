@@ -24,13 +24,13 @@ class Installer
      */
     public function add_version()
     {
-        $installed = get_option('wp_contacts_installed');
+        $installed = get_option('saad_contacts_installed');
 
         if (! $installed) {
-            update_option('wp_contacts_installed', time());
+            update_option('saad_contacts_installed', time());
         }
 
-        update_option('wp_contacts_version', WP_CONTACT_VERSION);
+        update_option('saad_contacts_version', SAAD_CONTACT_VERSION);
     }
 
     /**
@@ -44,7 +44,7 @@ class Installer
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $schema = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}contacts` (
+        $schema = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}saad_contacts` (
           `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
           `name` varchar(100) NOT NULL DEFAULT '',
           `email` varchar(100) DEFAULT NULL,

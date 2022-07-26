@@ -7,7 +7,7 @@
  *
  * @return array
  */
-function wp_contacts_get_all_contact($args = array())
+function get_all_saad_contact($args = array())
 {
     global $wpdb;
 
@@ -15,17 +15,17 @@ function wp_contacts_get_all_contact($args = array())
         'number'     => 20,
         'offset'     => 0,
         'orderby'    => 'id',
-        'order'      => 'ASC',
+        'order'      => 'DESC',
     );
 
     $args      = wp_parse_args($args, $defaults);
     $cache_key = 'contact-all';
-    $items     = wp_cache_get($cache_key, 'wp_contacts');
+    $items     = wp_cache_get($cache_key, 'saad_contacts');
 
     if (false === $items) {
-        $items = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'contacts ORDER BY ' . $args['orderby'] .' ' . $args['order'] .' LIMIT ' . $args['offset'] . ', ' . $args['number']);
+        $items = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'saad_contacts ORDER BY ' . $args['orderby'] .' ' . $args['order'] .' LIMIT ' . $args['offset'] . ', ' . $args['number']);
 
-        wp_cache_set($cache_key, $items, 'wp_contacts');
+        wp_cache_set($cache_key, $items, 'saad_contacts');
     }
 
     return $items;
@@ -36,11 +36,11 @@ function wp_contacts_get_all_contact($args = array())
  *
  * @return array
  */
-function wp_contacts_get_contact_count()
+function saad_contact_count()
 {
     global $wpdb;
 
-    return (int) $wpdb->get_var('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'contacts');
+    return (int) $wpdb->get_var('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'saad_contacts');
 }
 
 /**
@@ -50,11 +50,11 @@ function wp_contacts_get_contact_count()
  *
  * @return array
  */
-function wp_contacts_get_contact($id = 0)
+function get_saad_contact_by_id($id = 0)
 {
     global $wpdb;
 
-    return $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'contacts WHERE id = %d', $id));
+    return $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'saad_contacts WHERE id = %d', $id));
 }
 
 /**
@@ -62,7 +62,7 @@ function wp_contacts_get_contact($id = 0)
  *
  * @param array $args
  */
-function wp_contacts_insert_contact($args = array())
+function saad_contact_insert($args = array())
 {
     global $wpdb;
 
@@ -78,11 +78,11 @@ function wp_contacts_insert_contact($args = array())
     );
 
     $args       = wp_parse_args($args, $defaults);
-    $table_name = $wpdb->prefix . 'contacts';
+    $table_name = $wpdb->prefix . 'saad_contacts';
 
     // some basic validation
     if (empty($args['name'])) {
-        return new WP_Error('no-name', __('No Name provided.', 'wp_contacts'));
+        return new WP_Error('no-name', __('No Name provided.', 'saad_contacts'));
     }
 
     // remove row id to determine if new or update
@@ -108,12 +108,12 @@ function wp_contacts_insert_contact($args = array())
     return false;
 }
 
-function wp_contacts_delete($id)
+function saad_contact_delete($id)
 {
     global $wpdb;
 
     return $wpdb->delete(
-        $wpdb->prefix . 'contacts',
+        $wpdb->prefix . 'saad_contacts',
         [ 'id' => $id ],
         [ '%d' ]
     );

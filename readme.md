@@ -22,5 +22,5 @@
 ### Put this shortcode
 
 ```
-[wp-contacts]
+[saad-contacts]
 ```

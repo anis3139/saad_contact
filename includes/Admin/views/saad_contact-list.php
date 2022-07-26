@@ -1,8 +1,8 @@
 <div class="wrap">
     <h2><?php
-    _e('Contacts', 'wp_contacts'); ?> <a
+    _e('Contacts', 'saad_contacts'); ?> <a
             href="<?php echo admin_url('admin.php?page=contacts&action=new'); ?>"
-            class="add-new-h2"><?php _e('Add New', 'wp_contacts'); ?></a>
+            class="add-new-h2"><?php _e('Add New', 'saad_contacts'); ?></a>
     </h2>
 
     <form method="GET">

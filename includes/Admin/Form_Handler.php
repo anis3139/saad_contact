@@ -26,16 +26,16 @@ class Form_Handler
      */
     public function handle_form()
     {
-        if (! isset($_POST['wp_contact'])) {
+        if (! isset($_POST['saad_contacts'])) {
             return;
         }
 
-        if (! wp_verify_nonce($_POST['_wpnonce'], 'wp_contacts')) {
-            die(__('Are you cheating?', 'wp_contacts'));
+        if (! wp_verify_nonce($_POST['_wpnonce'], 'saad_contacts')) {
+            die(__('Are you cheating?', 'saad_contacts'));
         }
 
         if (! current_user_can('read')) {
-            wp_die(__('Permission Denied!', 'wp_contacts'));
+            wp_die(__('Permission Denied!', 'saad_contacts'));
         }
 
         $errors   = array();
@@ -51,7 +51,7 @@ class Form_Handler
 
         // some basic validation
         if (! $name) {
-            $errors[] = __('Error: Name is required', 'wp_contacts');
+            $errors[] = __('Error: Name is required', 'saad_contacts');
         }
 
         // bail out if error found
@@ -73,11 +73,11 @@ class Form_Handler
 
         // New or edit?
         if (! $field_id) {
-            $insert_id = wp_contacts_insert_contact($fields);
+            $insert_id = saad_contact_insert($fields);
         } else {
             $fields['id'] = $field_id;
 
-            $insert_id = wp_contacts_insert_contact($fields);
+            $insert_id = saad_contact_insert($fields);
         }
 
         if (is_wp_error($insert_id)) {
@@ -102,7 +102,7 @@ class Form_Handler
 
         $id = isset($_REQUEST['id']) ? intval($_REQUEST['id']) : 0;
         var_dump($id);
-        if (wp_contacts_delete($id)) {
+        if (saad_contact_delete($id)) {
             $redirected_to = admin_url('admin.php?page=contacts&contact-deleted=true');
         } else {
             $redirected_to = admin_url('admin.php?page=contacts&contact-deleted=false');

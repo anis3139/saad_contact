@@ -15,7 +15,7 @@ class Shortcode
      */
     public function __construct()
     {
-        add_shortcode('wp-contacts', [ $this, 'render_shortcode' ]);
+        add_shortcode('saad-contacts', [ $this, 'render_shortcode' ]);
         add_action('init', [$this, 'submit_contact']);
     }
 
@@ -29,22 +29,22 @@ class Shortcode
      */
     public function render_shortcode($atts, $content = '')
     {
-        $content=include(dirname(__FILE__) . '/views/wp_contact_new.php');
+        $content=include(dirname(__FILE__) . '/views/saad_contact_new.php');
         return  $content;
     }
 
     public function submit_contact()
     {
-        if (! isset($_POST['wp_contact'])) {
+        if (! isset($_POST['saad_contacts'])) {
             return;
         }
 
-        if (! wp_verify_nonce($_POST['_wpnonce'], 'wp_contacts')) {
-            die(__('Are you cheating?', 'wp_contacts'));
+        if (! wp_verify_nonce($_POST['_wpnonce'], 'saad_contacts')) {
+            die(__('Are you cheating?', 'saad_contacts'));
         }
 
         if (! current_user_can('read')) {
-            wp_die(__('Permission Denied!', 'wp_contacts'));
+            wp_die(__('Permission Denied!', 'saad_contacts'));
         }
 
          
@@ -59,7 +59,7 @@ class Shortcode
 
         // some basic validation
         if (! $name) {
-            $errors[] = __('Error: Name is required', 'wp_contacts');
+            $errors[] = __('Error: Name is required', 'saad_contacts');
         }
 
         // bail out if error found
@@ -80,7 +80,7 @@ class Shortcode
         );
 
  
-        $insert_id = wp_contacts_insert_contact($fields);
+        $insert_id = saad_contact_insert($fields);
         
 
         if (is_wp_error($insert_id)) {

@@ -1,15 +1,15 @@
 <div class="wrap">
-    <h1><?php _e('Contacts', 'wp_contacts'); ?>
+    <h1><?php _e('Contacts', 'saad_contacts'); ?>
     </h1>
 
-    <?php $item = wp_contacts_get_contact($id); ?>
+    <?php $item = get_saad_contact_by_id($id); ?>
 
 
     <table class="form-table">
         <tbody>
             <tr class="row-name">
                 <th scope="row">
-                    <p><?php _e('Name', 'wp_contacts'); ?>
+                    <p><?php _e('Name', 'saad_contacts'); ?>
                     </p>
                 </th>
                 <td>
@@ -19,7 +19,7 @@
             </tr>
             <tr class="row-email">
                 <th scope="row">
-                    <p><?php _e('Email', 'wp_contacts'); ?>
+                    <p><?php _e('Email', 'saad_contacts'); ?>
                     </p>
                 </th>
                 <td>
@@ -29,7 +29,7 @@
             </tr>
             <tr class="row-phone">
                 <th scope="row">
-                    <p><?php _e('Phone Number', 'wp_contacts'); ?>
+                    <p><?php _e('Phone Number', 'saad_contacts'); ?>
                     </p>
                 </th>
                 <td>
@@ -39,7 +39,7 @@
             </tr>
             <tr class="row-subject">
                 <th scope="row">
-                    <p><?php _e('Subject', 'wp_contacts'); ?>
+                    <p><?php _e('Subject', 'saad_contacts'); ?>
                     </p>
                 </th>
                 <td>
@@ -49,7 +49,7 @@
             </tr>
             <tr class="row-message">
                 <th scope="row">
-                    <p><?php _e('Message', 'wp_contacts'); ?>
+                    <p><?php _e('Message', 'saad_contacts'); ?>
                     </p>
                 </th>
                 <td>
@@ -59,22 +59,22 @@
             </tr>
             <tr class="row-created-by">
                 <th scope="row">
-                    <p><?php _e('Created By', 'wp_contacts'); ?>
+                    <p><?php _e('Created By', 'saad_contacts'); ?>
                     </p>
                 </th>
                 <td>
                     <p>
                         <?php
                             $user=get_user_by('id', $item->created_by);
-                            echo $user->user_firstname .' '. $user->user_lastname;
-                        ?>
+    echo $user->user_firstname .' '. $user->user_lastname;
+    ?>
                     </p>
 
                 </td>
             </tr>
             <tr class="row-created-at">
                 <th scope="row">
-                    <p><?php _e('Created At', 'wp_contacts'); ?>
+                    <p><?php _e('Created At', 'saad_contacts'); ?>
                     </p>
                 </th>
                 <td>

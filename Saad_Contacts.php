@@ -68,11 +68,11 @@ final class Saad_Contacts
      */
     public function define_constants()
     {
-        define('WP_CONTACT_VERSION', self::version);
-        define('WP_CONTACT_FILE', __FILE__);
-        define('WP_CONTACT_PATH', __DIR__);
-        define('WP_CONTACT_URL', plugins_url('', WP_CONTACT_FILE));
-        define('WP_CONTACT_ASSETS', WP_CONTACT_URL . '/assets');
+        define('SAAD_CONTACT_VERSION', self::version);
+        define('SAAD_CONTACT_FILE', __FILE__);
+        define('SAAD_CONTACT_PATH', __DIR__);
+        define('SAAD_CONTACT_URL', plugins_url('', SAAD_CONTACT_FILE));
+        define('SAAD_CONTACT_ASSETS', SAAD_CONTACT_URL . '/assets');
     }
 
     /**
@@ -106,10 +106,10 @@ final class Saad_Contacts
  *
  * @return \WeDevs_Academy
  */
-function wp_contacts()
+function saad_contacts()
 {
     return Saad_Contacts::init();
 }
 
 // kick-off the plugin
-wp_contacts();
+saad_contacts();

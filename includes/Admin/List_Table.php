@@ -31,7 +31,7 @@ class List_Table extends \WP_List_Table
      */
     public function no_items()
     {
-        _e('no contact found', 'wp_contacts');
+        _e('no contact found', 'saad_contacts');
     }
 
     /**
@@ -80,13 +80,13 @@ class List_Table extends \WP_List_Table
     {
         $columns = array(
             'cb'           => '<input type="checkbox" />',
-            'name'      => __('Name ', 'wp_contacts'),
-            'email'      => __('Email', 'wp_contacts'),
-            'phone'      => __('Phone Number', 'wp_contacts'),
-            'subject'      => __('Subject', 'wp_contacts'),
-            'message'      => __('Message', 'wp_contacts'),
-            'created_by'      => __('Created By', 'wp_contacts'),
-            'created_at'      => __('Date', 'wp_contacts'),
+            'name'      => __('Name ', 'saad_contacts'),
+            'email'      => __('Email', 'saad_contacts'),
+            'phone'      => __('Phone Number', 'saad_contacts'),
+            'subject'      => __('Subject', 'saad_contacts'),
+            'message'      => __('Message', 'saad_contacts'),
+            'created_by'      => __('Created By', 'saad_contacts'),
+            'created_at'      => __('Date', 'saad_contacts'),
 
         );
 
@@ -103,7 +103,7 @@ class List_Table extends \WP_List_Table
     public function column_name($item)
     {
         $actions           = array();
-        $actions['edit']   = sprintf('<a href="%s" data-id="%d" title="%s">%s</a>', admin_url('admin.php?page=contacts&action=edit&id=' . $item->id), $item->id, __('Edit this item', 'wp_contacts'), __('Edit', 'wp_contacts'));
+        $actions['edit']   = sprintf('<a href="%s" data-id="%d" title="%s">%s</a>', admin_url('admin.php?page=contacts&action=edit&id=' . $item->id), $item->id, __('Edit this item', 'saad_contacts'), __('Edit', 'saad_contacts'));
         $actions['delete'] = sprintf(
             '<a href="%s" class="submitdelete" onclick="return confirm(\'Are you sure?\');" title="%s">%s</a>',
             wp_nonce_url(
@@ -111,8 +111,8 @@ class List_Table extends \WP_List_Table
                 'wp-delete-contact'
             ),
             $item->id,
-            __('Delete', 'wp_contacts'),
-            __('Delete', 'wp_contacts')
+            __('Delete', 'saad_contacts'),
+            __('Delete', 'saad_contacts')
         );
          
 
@@ -225,10 +225,10 @@ class List_Table extends \WP_List_Table
             $args['order']   = $_REQUEST['order'] ;
         }
 
-        $this->items  = wp_contacts_get_all_contact($args);
+        $this->items  = get_all_saad_contact($args);
 
         $this->set_pagination_args(array(
-            'total_items' => wp_contacts_get_contact_count(),
+            'total_items' => saad_contact_count(),
             'per_page'    => $per_page
         ));
     }
@@ -242,7 +242,7 @@ class List_Table extends \WP_List_Table
     public function get_bulk_actions()
     {
         return array(
-            'delete' => __('Delete', 'wp-contacts'),
+            'delete' => __('Delete', 'saad_contacts'),
         );
     }
 
@@ -255,7 +255,7 @@ class List_Table extends \WP_List_Table
     {
         if ('delete'===$this->current_action()) {
             foreach ($_GET['contact'] as $id) {
-                $result=wp_contacts_delete($id);
+                $result=saad_contact_delete($id);
             }
             if ($result) {
                 $redirected_to = admin_url('admin.php?page=contacts&contact-deleted=true');
