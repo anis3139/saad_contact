@@ -181,7 +181,7 @@ class Contacts extends WP_REST_Controller
             $data[]   = $this->prepare_response_for_collection($response);
         }
         
-        $total     = saad_contact_count();
+        $total     = intval(saad_contact_count());
         $max_pages = ceil($total / (int) $args['number']);
 
         $response = rest_ensure_response($data);
