@@ -56,7 +56,7 @@ class Shortcode
         $subject = isset($_POST['subject']) ? sanitize_text_field($_POST['subject']) : '';
         $message = isset($_POST['message']) ? wp_kses_post($_POST['message']) : '';
         $created_by = isset($_POST['created_by']) ? intval($_POST['created_by']) : 0;
-
+        $errors=[];
         // some basic validation
         if (! $name) {
             $errors[] = __('Error: Name is required', 'saad_contacts');
