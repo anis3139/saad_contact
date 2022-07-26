@@ -160,9 +160,15 @@ class List_Table extends \WP_List_Table
     {
         $user=get_user_by('id', $item->created_by);
         if ($user) {
-            return $user->user_firstname .' '. $user->user_lastname;
+            if ($user->user_firstname || $user->user_lastname) {
+                $fname=$user->user_firstname?$user->user_firstname:'';
+                $lname=$user->user_lastname?$user->user_lastname:'';
+                return $fname .' '. $lname;
+            } else {
+                return $user->display_name;
+            }
         } else {
-            return "Guest";
+            return 'Guest';
         }
     }
 

@@ -66,15 +66,19 @@
                     <p>
                         <?php
                             $user=get_user_by('id', $item->created_by);
-                            if ($user->user_firstname && $user->user_lastname) {
-                                $fname=$user->user_firstname?$user->user_firstname:'';
-                                $lname=$user->user_lastname?$user->user_lastname:'';
-                                echo $fname .' '. $lname;
-                            }else{
-                                echo $user->display_name;
+                            if ($user) {
+                                if ($user->user_firstname || $user->user_lastname) {
+                                    $fname=$user->user_firstname?$user->user_firstname:'';
+                                    $lname=$user->user_lastname?$user->user_lastname:'';
+                                    echo $fname .' '. $lname;
+                                } else {
+                                    echo $user->display_name;
+                                }
+                            } else {
+                                echo'Guest';
                             }
-                         
-    ?>
+                                                
+                            ?>
                     </p>
 
                 </td>
