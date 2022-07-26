@@ -159,7 +159,11 @@ class List_Table extends \WP_List_Table
     public function column_created_by($item)
     {
         $user=get_user_by('id', $item->created_by);
-        return $user->user_firstname .' '. $user->user_lastname;
+        if ($user) {
+            return $user->user_firstname .' '. $user->user_lastname;
+        } else {
+            return "Guest";
+        }
     }
 
     /**

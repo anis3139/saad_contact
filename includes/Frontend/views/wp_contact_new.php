@@ -1,8 +1,13 @@
 <div class="wrap">
-    <h1><?php _e('Contacts', 'wp_contacts'); ?>
-    </h1>
-
-    <form action="" method="post">
+    <div class="notice">
+        <?php
+        if (isset($_GET['message'])) {
+            echo 'Message send Successfully...';
+        }
+        ?>
+    </div>
+    <form action="<?php echo the_permalink()?>" method="post"
+        id="wp_contact">
 
         <table class="form-table">
             <tbody>
@@ -56,17 +61,16 @@
                             rows="5" cols="30"></textarea>
                     </td>
                 </tr>
-                <input  type="hidden" name="created_by" id="created_by" class="regular-text"
-                    placeholder="<?php echo esc_attr('', 'wp_contacts'); ?>"
-                    value="<?php echo esc_attr(get_current_user_id(), 'wp_contacts');?>" />
-
+                <tr>
+                    <input type="hidden" name="field_id" value="0">
+                    <input type="hidden" name="wp_contact" value="1">
+                </tr>
             </tbody>
         </table>
-
-        <input type="hidden" name="field_id" value="0">
-
         <?php wp_nonce_field('wp_contacts'); ?>
-        <?php submit_button(__('Add New', 'wp_contacts'), 'primary', 'wp_contact'); ?>
+
+        <input type="submit" value="Submit">
+
 
     </form>
 </div>

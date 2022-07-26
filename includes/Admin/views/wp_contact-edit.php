@@ -60,7 +60,7 @@
                             cols="30"><?php echo esc_textarea($item->message); ?></textarea>
                     </td>
                 </tr>
-                <input hidden type="number" name="created_by" id="created_by" class="regular-text"
+                <input  type="hidden" name="created_by" id="created_by" class="regular-text"
                     placeholder="<?php echo esc_attr('', 'wp_contacts'); ?>"
                     value="<?php echo esc_attr($item->created_by); ?>" />
             </tbody>
