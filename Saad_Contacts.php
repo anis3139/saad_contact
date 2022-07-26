@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: WP Contacts
- * Description: Contact Form
+ * Plugin Name: Saad Contacts
+ * Description: Contact Management Plugin for WordPress
  * Plugin URI: https://github.com/anis3139
  * Author: Anichur Rahaman
  * Author URI: https://github.com/anis3139
@@ -9,6 +9,10 @@
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
+
+use Saad_Contacts\Admin\Admin;
+use Saad_Contacts\Frontend\Frontend;
+use Saad_Contacts\Installer;
 
 if (! defined('ABSPATH')) {
     exit;
@@ -19,7 +23,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main plugin class
  */
-final class WP_Contacts
+final class Saad_Contacts
 {
 
     /**
@@ -79,9 +83,9 @@ final class WP_Contacts
     public function init_plugin()
     {
         if (is_admin()) {
-            new WP_Contacts\Admin\Admin();
+            new Admin();
         } else {
-            new WP_Contacts\Frontend\Frontend();
+            new Frontend();
         }
     }
 
@@ -92,7 +96,7 @@ final class WP_Contacts
      */
     public function activate()
     {
-        $installer = new WP_Contacts\Installer();
+        $installer = new Installer();
         $installer->run();
     }
 }
@@ -104,7 +108,7 @@ final class WP_Contacts
  */
 function wp_contacts()
 {
-    return WP_Contacts::init();
+    return Saad_Contacts::init();
 }
 
 // kick-off the plugin

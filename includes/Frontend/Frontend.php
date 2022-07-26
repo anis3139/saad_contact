@@ -1,7 +1,7 @@
 <?php
-namespace WP_Contacts\Frontend;
+namespace Saad_Contacts\Frontend;
 
-use WP_Contacts\Frontend\Shortcode;
+use Saad_Contacts\Frontend\Shortcode;
 
 class Frontend
 {

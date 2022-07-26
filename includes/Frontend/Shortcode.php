@@ -1,8 +1,8 @@
 <?php
 
-namespace WP_Contacts\Frontend;
+namespace Saad_Contacts\Frontend;
 
-use WP_Contacts\Admin\Form_Handler;
+use Saad_Contacts\Admin\Form_Handler;
 
 /**
  * Shortcode handler class

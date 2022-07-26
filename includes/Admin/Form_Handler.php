@@ -1,5 +1,5 @@
 <?php
-namespace WP_Contacts\Admin;
+namespace Saad_Contacts\Admin;
 
 /**
  * Handle the form submissions
@@ -15,7 +15,7 @@ class Form_Handler
      */
     public function __construct()
     {
-        add_action('admin_init', array( $this, 'handle_form' )); 
+        add_action('admin_init', array( $this, 'handle_form' ));
         add_action('admin_post_wp-delete-contact', [ $this, 'handle_delete' ]);
     }
 

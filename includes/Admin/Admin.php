@@ -1,9 +1,9 @@
 <?php
 
-namespace WP_Contacts\Admin;
+namespace Saad_Contacts\Admin;
 
-use WP_Contacts\Admin\Menu;
-use WP_Contacts\Admin\Form_Handler;
+use Saad_Contacts\Admin\Menu;
+use Saad_Contacts\Admin\Form_Handler;
 
 /**
  * The admin class
@@ -19,5 +19,4 @@ class Admin
         new Menu();
         new Form_Handler();
     }
-   
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace WP_Contacts;
+namespace Saad_Contacts;
 
 /**
  * Installer class

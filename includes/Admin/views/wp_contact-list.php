@@ -10,7 +10,7 @@
             value="<?php echo $_REQUEST['page']; ?>">
 
         <?php
-           $list_table = new WP_Contacts\Admin\List_Table();
+           $list_table = new Saad_Contacts\Admin\List_Table();
     $list_table->prepare_items();
     $list_table->search_box('search', 'search_id');
     $list_table->display();
