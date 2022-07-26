@@ -181,7 +181,7 @@ class List_Table extends \WP_List_Table
      */
     public function column_created_at($item)
     {
-        $created_at= date('M d, Y H:i a', strtotime($item->created_at));
+        $created_at= date('M d, Y h:i a', strtotime($item->created_at));
         return "<strong>{$created_at}</strong>";
     }
 

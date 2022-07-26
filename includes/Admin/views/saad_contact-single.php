@@ -90,7 +90,7 @@
                 </th>
                 <td>
                     <p>
-                        <?php echo date('M d, Y H:i a', strtotime($item->created_at));?>
+                        <?php echo date('M d, Y h:i a', strtotime($item->created_at));?>
                     </p>
 
                 </td>
