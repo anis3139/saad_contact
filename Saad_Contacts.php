@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/anis3139
  * Author: Anichur Rahaman
  * Author URI: https://github.com/anis3139
- * Version: 1.0.4
+ * Version: 1.1.1
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */

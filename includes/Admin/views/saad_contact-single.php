@@ -66,7 +66,12 @@
                     <p>
                         <?php
                             $user=get_user_by('id', $item->created_by);
-    echo $user->user_firstname .' '. $user->user_lastname;
+                            if ($user) {
+                                $fname=$user->user_firstname?$user->user_firstname:'';
+                                $lname=$user->user_lastname?$user->user_lastname:'';
+                                echo $fname .' '. $lname;
+                            }
+                         
     ?>
                     </p>
 
