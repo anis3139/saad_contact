@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/anis3139
  * Author: Anichur Rahaman
  * Author URI: https://github.com/anis3139
- * Version: 1.0.0
+ * Version: 1.1.1
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -39,7 +39,7 @@ final class Saad_Contacts
     private function __construct()
     {
         $this->define_constants();
-        $this->appsero_init_tracker_contact_form_2();
+        $this->appsero_init_tracker_saad_contacts();
 
         register_activation_hook(__FILE__, [ $this, 'activate' ]);
 
@@ -104,18 +104,19 @@ final class Saad_Contacts
 
    
    
+    
     /**
      * Initialize the plugin tracker
      *
      * @return void
      */
-    public function appsero_init_tracker_contact_form_2()
+    public function appsero_init_tracker_saad_contacts()
     {
         if (! class_exists('Appsero\Client')) {
             require_once __DIR__ . '/appsero/src/Client.php';
         }
 
-        $client = new Appsero\Client('3bd24b45-3393-48f5-a8a8-ffadb4b3278e', 'contact form 2', __FILE__);
+        $client = new Appsero\Client('370c673e-8695-4975-a5df-62ba84134b13', 'saad contacts', __FILE__);
 
         // Active insights
         $client->insights()->init();
@@ -126,10 +127,10 @@ final class Saad_Contacts
         // Active license page and checker
         $args = array(
         'type'       => 'options',
-        'menu_title' => 'contact form 2',
-        'page_title' => 'contact form 2 Settings',
-        'menu_slug'  => 'contact_form_2_settings',
-        );
+        'menu_title' => 'saad contacts',
+        'page_title' => 'saad contacts Settings',
+        'menu_slug'  => 'saad_contacts_settings',
+    );
         $client->license()->add_settings_page($args);
     }
 }
