@@ -1,8 +1,7 @@
 <?php
 namespace Saad_Contacts\API;
-
-use Saad_Contacts\DB;
-use WP_REST_Controller;
+ 
+use WP_REST_Controller; 
 use WP_REST_Server;
 
 class User extends WP_REST_Controller
@@ -83,14 +82,14 @@ class User extends WP_REST_Controller
         unset($args['per_page']);
         unset($args['page']);
         
-        $users=  DB::get( 'users', $args); 
+        $users=  get_all_saad_user($args);
 
         foreach ($users as $user) {
             $response = $this->prepare_item_for_response($user, $request);
             $data[]   = $this->prepare_response_for_collection($response);
         }
 
-        $total     = intval(DB::count('users'));
+        $total     = intval(saad_user_count());
         $max_pages = ceil($total / (int) $args['number']);
 
         $response = rest_ensure_response($data);
@@ -126,7 +125,7 @@ class User extends WP_REST_Controller
     */
     protected function get_user($id)
     {
-        $user = DB::get_by_id('users', $id);
+        $user = get_saad_user_by_id($id);
 
         if (! $user) {
             return new \WP_Error(

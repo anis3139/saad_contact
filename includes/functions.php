@@ -7,6 +7,64 @@
  *
  * @return array
  */
+function get_all_saad_user($args = array())
+{
+    global $wpdb;
+
+    $defaults = array(
+        'number'     => 20,
+        'offset'     => 0,
+        'orderby'    => 'id',
+        'order'      => 'DESC',
+    );
+ 
+    $args      = wp_parse_args($args, $defaults);
+    $cache_key = 'user-all';
+    $items     = wp_cache_get($cache_key, 'saad_contacts');
+
+    if (false === $items) {
+        $items = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'users ORDER BY ' . $args['orderby'] .' ' . $args['order'] .' LIMIT ' . $args['offset'] . ', ' . $args['number']);
+
+        wp_cache_set($cache_key, $items, 'saad_user');
+    }
+
+    return $items;
+}
+
+/**
+ * Fetch all contact from database
+ *
+ * @return array
+ */
+function saad_user_count()
+{
+    global $wpdb;
+
+    return (int) $wpdb->get_var('SELECT COUNT(*) FROM ' . $wpdb->prefix . 'users');
+}
+
+/**
+ * Fetch a single contact from database
+ *
+ * @param int   $id
+ *
+ * @return array
+ */
+function get_saad_user_by_id($id = 0)
+{
+    global $wpdb;
+
+    return $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'users WHERE id = %d', $id));
+}
+
+
+/**
+ * Get all contact
+ *
+ * @param $args array
+ *
+ * @return array
+ */
 function get_all_saad_contact($args = array())
 {
     global $wpdb;
@@ -24,6 +82,7 @@ function get_all_saad_contact($args = array())
 
     if (false === $items) {
         $items = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'saad_contacts ORDER BY ' . $args['orderby'] .' ' . $args['order'] .' LIMIT ' . $args['offset'] . ', ' . $args['number']);
+
         wp_cache_set($cache_key, $items, 'saad_contacts');
     }
 
