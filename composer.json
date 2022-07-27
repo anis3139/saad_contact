@@ -11,7 +11,8 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "appsero/client": "dev-develop"
+    "appsero/client": "dev-develop",
+    "mehedimi/wp-query-builder": "dev-main"
   },
   "autoload": {
     "psr-4": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc04caa0270188f765f4ae46af97633e",
+    "content-hash": "fce3ab5546ce9f6978d0133dc4ab59a9",
     "packages": [
         {
             "name": "appsero/client",
@@ -52,13 +52,57 @@
                 "source": "https://github.com/Appsero/client/tree/develop"
             },
             "time": "2022-06-30T12:01:38+00:00"
+        },
+        {
+            "name": "mehedimi/wp-query-builder",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mehedimi/wp-query-builder.git",
+                "reference": "977e655ed39c3f7622f651f43e9a7ac1e53d447e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mehedimi/wp-query-builder/zipball/977e655ed39c3f7622f651f43e9a7ac1e53d447e",
+                "reference": "977e655ed39c3f7622f651f43e9a7ac1e53d447e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "phpunit/phpunit": "^9.5",
+                "symfony/var-dumper": "^5.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mehedi\\WPQueryBuilder\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehedi Hasan",
+                    "email": "mehedihasansabbirmi@gmail.com"
+                }
+            ],
+            "description": "A database query builder for WordPress",
+            "support": {
+                "issues": "https://github.com/mehedimi/wp-query-builder/issues",
+                "source": "https://github.com/mehedimi/wp-query-builder/tree/main"
+            },
+            "time": "2022-07-26T14:36:15+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "appsero/client": 20
+        "appsero/client": 20,
+        "mehedimi/wp-query-builder": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
