@@ -1,25 +1,24 @@
 <?php
 namespace Saad_Contacts\API;
- 
-use WP_REST_Controller; 
+
+use Saad_Contacts\API\Abstruct_Class;
 use WP_REST_Server;
 
-class User extends WP_REST_Controller
+class User extends Abstruct_Class
 {
-    /**
-    * Initialize the class
-    */
-    public function __construct()
-    {
-        $this->namespace = 'saad-users/v1';
-        $this->rest_base = 'users';
-    }
 
     /**
-       * Registers the routes for the objects of the controller.
-       *
-       * @return void
-       */
+      * Initialize the class
+      */
+    public function __construct()
+    {
+        $this->rest_base = 'users';
+    }
+    /**
+         * Registers the routes for the objects of the controller.
+         *
+         * @return void
+         */
     public function register_routes()
     {
         register_rest_route(

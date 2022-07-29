@@ -2,17 +2,16 @@
 
 namespace Saad_Contacts\API;
 
-use WP_REST_Controller;
+use Saad_Contacts\API\Abstruct_Class;
 use WP_REST_Server;
 
-class Contacts extends WP_REST_Controller
+class Contacts extends Abstruct_Class
 {
     /**
      * Initialize the class
      */
     public function __construct()
     {
-        $this->namespace = 'saad-contacts/v1';
         $this->rest_base = 'contacts';
     }
     /**
@@ -41,6 +40,7 @@ class Contacts extends WP_REST_Controller
                 'schema' => [ $this, 'get_item_schema' ],
             ]
         );
+        
         register_rest_route(
             $this->namespace,
             '/' . $this->rest_base . '/(?P<id>[\d]+)',
@@ -390,7 +390,7 @@ class Contacts extends WP_REST_Controller
         $contact  = $this->get_contact($request['id']);
         $previous = $this->prepare_item_for_response($contact, $request);
 
-        $deleted = saad_contact_delete($request['id']); 
+        $deleted = saad_contact_delete($request['id']);
         
         if (! $deleted) {
             return new \WP_Error(

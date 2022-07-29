@@ -20,6 +20,7 @@ if (! defined('ABSPATH')) {
 }
 
 require __DIR__ . '/vendor/autoload.php';
+
 /**
  * The main plugin class
  */
@@ -134,7 +135,7 @@ final class Saad_Contacts
         $client->license()->add_settings_page($args);
     }
 }
-
+ 
 /**
  * Initializes the main plugin
  *
