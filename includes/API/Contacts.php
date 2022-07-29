@@ -2,10 +2,10 @@
 
 namespace Saad_Contacts\API;
 
-use Saad_Contacts\API\Abstruct_Class;
+use Saad_Contacts\API\API_Abstruct;
 use WP_REST_Server;
 
-class Contacts extends Abstruct_Class
+class Contacts extends API_Abstruct
 {
     /**
      * Initialize the class
