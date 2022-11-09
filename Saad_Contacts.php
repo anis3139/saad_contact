@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/anis3139
  * Author: Anichur Rahaman
  * Author URI: https://github.com/anis3139
- * Version: 1.1.1
+ * Version: 2.0.0
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -26,13 +26,12 @@ require __DIR__ . '/vendor/autoload.php';
  */
 final class Saad_Contacts
 {
-
     /**
      * Plugin version
      *
      * @var string
      */
-    const version = '1.0';
+    public const version = '2.0.0';
 
     /**
      * Class construcotr
@@ -40,7 +39,7 @@ final class Saad_Contacts
     private function __construct()
     {
         $this->define_constants();
-        $this->appsero_init_tracker_saad_contacts();
+        $this->appsero_init_tracker_saad_contact_forms();
 
         register_activation_hook(__FILE__, [ $this, 'activate' ]);
 
@@ -103,21 +102,21 @@ final class Saad_Contacts
         $installer->run();
     }
 
-   
-   
-    
+
+
+
     /**
      * Initialize the plugin tracker
      *
      * @return void
      */
-    public function appsero_init_tracker_saad_contacts()
+    public function appsero_init_tracker_saad_contact_forms()
     {
         if (! class_exists('Appsero\Client')) {
             require_once __DIR__ . '/appsero/src/Client.php';
         }
 
-        $client = new Appsero\Client('370c673e-8695-4975-a5df-62ba84134b13', 'saad contacts', __FILE__);
+        $client = new Appsero\Client('b2c1490a-a6a0-4029-bbfb-7927498c3808', 'saad contact forms', __FILE__);
 
         // Active insights
         $client->insights()->init();
@@ -127,15 +126,15 @@ final class Saad_Contacts
 
         // Active license page and checker
         $args = array(
-        'type'       => 'options',
-        'menu_title' => 'saad contacts',
-        'page_title' => 'saad contacts Settings',
-        'menu_slug'  => 'saad_contacts_settings',
-    );
+            'type'       => 'options',
+            'menu_title' => 'saad contact forms',
+            'page_title' => 'saad contact forms Settings',
+            'menu_slug'  => 'saad_contact_forms_settings',
+        );
         $client->license()->add_settings_page($args);
     }
 }
- 
+
 /**
  * Initializes the main plugin
  *
