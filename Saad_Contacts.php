@@ -2,10 +2,10 @@
 /**
  * Plugin Name: Saad Contacts
  * Description: Contact Management Plugin for WordPress
- * Plugin URI: https://github.com/anis3139
+ * Plugin URI: https://github.com/anisAronno/saad_contacts
  * Author: Anichur Rahaman
- * Author URI: https://github.com/anis3139
- * Version: 2.0.2
+ * Author URI: https://anichur.com
+ * Version: 2.0.3
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
