@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/anis3139
  * Author: Anichur Rahaman
  * Author URI: https://github.com/anis3139
- * Version: 2.0.1
+ * Version: 2.0.2
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -116,23 +116,16 @@ final class Saad_Contacts
             require_once __DIR__ . '/appsero/src/Client.php';
         }
 
-        $client = new Appsero\Client('b2c1490a-a6a0-4029-bbfb-7927498c3808', 'saad contact forms', __FILE__);
+        $client = new Appsero\Client('581ab831-05ab-4169-8988-00d8b2eabb82', 'Saad Contacts', __FILE__);
 
         // Active insights
         $client->insights()->init();
 
         // Active automatic updater
         $client->updater();
-
-        // Active license page and checker
-        $args = array(
-            'type'       => 'options',
-            'menu_title' => 'saad contact forms',
-            'page_title' => 'saad contact forms Settings',
-            'menu_slug'  => 'saad_contact_forms_settings',
-        );
-        $client->license()->add_settings_page($args);
     }
+
+
 }
 
 /**

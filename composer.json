@@ -1,6 +1,6 @@
 {
   "name": "anis3139/saad_contacts",
-  "description": "A plugin for  contact form",
+  "description": "WordPress Contact Form",
   "type": "wordpress-plugin",
   "license": "GPLv2",
   "authors": [
