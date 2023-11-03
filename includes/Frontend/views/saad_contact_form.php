@@ -1,11 +1,4 @@
 <div class="wrap">
-    <div class="notice">
-        <?php
-        if (isset($_GET['message'])) {
-            echo 'Message send Successfully...';
-        }
-        ?>
-    </div>
     <form action="<?php echo the_permalink()?>" method="post">
 
         <table class="form-table">
@@ -69,7 +62,6 @@
         <?php wp_nonce_field('saad_contacts'); ?>
 
         <input type="submit" value="Submit">
-
 
     </form>
 </div>

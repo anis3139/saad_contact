@@ -2,22 +2,18 @@
 
 namespace Saad_Contacts\Frontend;
 
-use Saad_Contacts\Admin\Form_Handler;
-
 /**
  * Shortcode handler class
  */
 class Shortcode
 {
-
     /**
      * Initializes the class
      */
     public function __construct()
     {
         add_shortcode('saad-contacts', [ $this, 'render_shortcode' ]);
-        add_action('init', [$this, 'submit_contact']);
-    }
+     }
 
     /**
      * Shortcode handler class
@@ -29,25 +25,24 @@ class Shortcode
      */
     public function render_shortcode($atts, $content = '')
     {
-        $content=include(dirname(__FILE__) . '/views/saad_contact_new.php');
-        return  $content;
+         include(dirname(__FILE__) . '/views/saad_contact_form.php');
     }
 
     public function submit_contact()
     {
-        if (! isset($_POST['saad_contacts'])) {
+        if (!isset($_POST['saad_contacts'])) {
             return;
         }
 
-        if (! wp_verify_nonce($_POST['_wpnonce'], 'saad_contacts')) {
+        if (!wp_verify_nonce($_POST['_wpnonce'], 'saad_contacts')) {
             die(__('Are you cheating?', 'saad_contacts'));
         }
 
-        if (! current_user_can('read')) {
+        if (!current_user_can('read')) {
             wp_die(__('Permission Denied!', 'saad_contacts'));
         }
 
-         
+
         $page_url = wp_get_referer();
 
         $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
@@ -56,9 +51,9 @@ class Shortcode
         $subject = isset($_POST['subject']) ? sanitize_text_field($_POST['subject']) : '';
         $message = isset($_POST['message']) ? wp_kses_post($_POST['message']) : '';
         $created_by = isset($_POST['created_by']) ? intval($_POST['created_by']) : 0;
-        $errors=[];
+        $errors = [];
         // some basic validation
-        if (! $name) {
+        if (!$name) {
             $errors[] = __('Error: Name is required', 'saad_contacts');
         }
 
@@ -79,9 +74,9 @@ class Shortcode
             'created_by' => $created_by,
         );
 
- 
+
         $insert_id = saad_contact_insert($fields);
-        
+
 
         if (is_wp_error($insert_id)) {
             $redirect_to = add_query_arg(array( 'message' => 'error' ), $page_url);

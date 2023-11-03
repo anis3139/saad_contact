@@ -3,14 +3,12 @@
 namespace Saad_Contacts;
 
 use Saad_Contacts\API\Contacts;
-use Saad_Contacts\API\User;
 
 /**
  * API Class
  */
 class API
 {
-
     /**
      * Initialize the class
      */
@@ -26,9 +24,8 @@ class API
      */
     public function register_api()
     {
-        $classes=[];
+        $classes = [];
         $classes[] = new Contacts();
-        $classes[] = new User();
 
         foreach ($classes as  $class) {
             $class->register_routes();
